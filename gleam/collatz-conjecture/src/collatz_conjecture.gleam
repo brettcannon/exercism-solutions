@@ -7,10 +7,11 @@ pub type Error {
 fn steps_count(number: Int, count: Int) -> Int {
   let is_even = int.is_even(number)
 
-  case number {
-    1 -> count
-    _ if is_even -> steps_count(number / 2, count+1)
-    _ -> steps_count(number * 3 + 1, count+1)
+  // From the community.
+  case number, int.is_even(number) {
+    1, _ -> count
+    _, True -> steps_count(number / 2, count+1)
+    _, False -> steps_count(number * 3 + 1, count+1)
   }
 }
 
