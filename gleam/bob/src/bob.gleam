@@ -8,8 +8,8 @@ pub fn hey(remark: String) -> String {
   let trimmed = string.trim(remark)
   // Watch out for non-alphanumeric characters which are simultaneously upper and lowercase.
   let is_upper = string.uppercase(trimmed) == trimmed && string.lowercase(trimmed) != string.uppercase(trimmed)
-  let is_question = {string.last(trimmed) |> result.unwrap("")} == "?"
-  let silence = string.trim(trimmed) |> string.is_empty
+  let is_question = string.ends_with(trimmed, "?")
+  let silence = string.is_empty(trimmed)
 
   case is_upper, is_question, silence {
     _, _, True -> "Fine. Be that way!"
