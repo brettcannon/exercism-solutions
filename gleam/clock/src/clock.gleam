@@ -32,7 +32,7 @@ pub fn subtract(clock: Clock, minutes minutes: Int) -> Clock {
 }
 
 fn to_string(num: Int) -> String {
-  num |> int.to_string |> string.pad_left(to: 2, with: "0")
+  num |> int.to_string |> string.pad_start(to: 2, with: "0")
 }
 
 pub fn display(clock: Clock) -> String {
