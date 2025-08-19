@@ -1,28 +1,28 @@
-import gleam/queue.{type Queue}
+import gleam/deque.{type Deque}
 import gleam/result
 
-pub fn insert_top(queue: Queue(Int), card: Int) -> Queue(Int) {
-  queue.push_back(queue, card)
+pub fn insert_top(deque: Deque(Int), card: Int) -> Deque(Int) {
+  deque.push_back(deque, card)
 }
 
-pub fn remove_top_card(queue: Queue(Int)) -> Queue(Int) {
-  case queue.pop_back(queue) {
+pub fn remove_top_card(deque: Deque(Int)) -> Deque(Int) {
+  case deque.pop_back(deque) {
     Ok(#(_, q))  -> q
-    Error(Nil) -> queue
+    Error(Nil) -> deque
   }
 }
 
-pub fn insert_bottom(queue: Queue(Int), card: Int) -> Queue(Int) {
-  queue.push_front(queue, card)
+pub fn insert_bottom(deque: Deque(Int), card: Int) -> Deque(Int) {
+  deque.push_front(deque, card)
 }
 
-pub fn remove_bottom_card(queue: Queue(Int)) -> Queue(Int) {
-  case queue.pop_front(queue) {
+pub fn remove_bottom_card(deque: Deque(Int)) -> Deque(Int) {
+  case deque.pop_front(deque) {
     Ok(#(_, q))  -> q
-    Error(Nil) -> queue
+    Error(Nil) -> deque
   }
 }
 
-pub fn check_size_of_stack(queue: Queue(Int), target: Int) -> Bool {
-  queue.length(queue) == target
+pub fn check_size_of_stack(deque: Deque(Int), target: Int) -> Bool {
+  deque.length(deque) == target
 }
