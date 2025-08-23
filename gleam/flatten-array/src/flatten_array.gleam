@@ -1,4 +1,5 @@
-// By ChatGPT-5 after initally solving w/o any AI help.
+// By ChatGPT-5 after initally solving w/o any AI help;
+// simplification by Dusty.
 //
 // This solution is simpler thanks to list.flat_map;
 // I created my own list.extend() function and broke out a helper function to
@@ -17,6 +18,6 @@ pub fn flatten(nested_list: NestedList(a)) -> List(a) {
     Value(x) -> [x]
     List(xs) ->
       xs
-      |> list.flat_map(fn(x) { flatten(x) })
+      |> list.flat_map(flatten)
   }
 }
